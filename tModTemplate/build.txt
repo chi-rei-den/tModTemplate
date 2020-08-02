@@ -1,0 +1,4 @@
+displayName = Template Mod
+author = SGKoishi
+version = 0.1
+homepage = https://github.com/chi-rei-den/tModTemplate

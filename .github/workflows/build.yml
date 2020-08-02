@@ -1,0 +1,48 @@
+name: Mod Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: recursive
+
+      - name: Installer NuGet client
+        uses: nuget/setup-nuget@v1
+
+      - name: Setup tModLoader
+        uses: chi-rei-den/ModLoaderTools@v1.1
+        with:
+          command: setup
+
+      - name: Restore NuGet Packages
+        run: nuget restore Mod.sln
+
+      - name: Build Mod
+        run: |
+          & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" Mod.sln /p:Configuration=Release
+
+      - name: Publish Mod
+        if: github.ref == 'refs/heads/master'
+        uses: chi-rei-den/ModLoaderTools@v1
+        with:
+          command: publish
+          path: tModTemplate
+        env:
+          steamid64: ${{ secrets.steamid64 }}
+          passphrase: ${{ secrets.mod_browser_passphrase }}
+
+      - name: Clean artifact
+        run: |
+          mkdir .\Artifact\Artifact\
+          Copy-Item -Path "$ENV:UserProfile\Documents\My Games\Terraria\ModLoader\Mods\*" -Destination .\Artifact\Artifact
+          del .\Artifact\Artifact\enabled.json
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: Build Artifact
+          path: Artifact
