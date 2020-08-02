@@ -18,4 +18,12 @@
 * 【可选】打开`LICENSE`，在第三行末尾添加开源代码的拥有者信息。  
 
 ### GitHub好慢啊！
-* [试下这个。](https://hub.fastgit.org/)
+* [试下这个加速版！](https://hub.fastgit.org/)
+
+### 等等，我怎么用这个模板？
+* [点击右上角的Use this template](https://github.com/chi-rei-den/tModTemplate/generate) 或 [(加速版）Use this template](https://hub.fastgit.org/chi-rei-den/tModTemplate/generate)
+* 然后单击Code，将代码克隆`clone`到本地后就可以开始开发了！
+
+### emmmmmm我好像不是很会用git啊可是
+* [猴子都能懂的GIT入门](https://backlog.com/git-tutorial/cn/intro/intro1_1.html)
+* [廖雪峰的浅显易懂Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
