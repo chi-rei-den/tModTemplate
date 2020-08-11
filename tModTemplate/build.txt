@@ -1,4 +1,9 @@
 displayName = Template Mod
 author = SGKoishi
-version = 0.1
+version = 0.1.1
 homepage = https://github.com/chi-rei-den/tModTemplate
+hideCode = true
+hideResources = false
+includeSource = false
+includePDB = false
+side = Both
